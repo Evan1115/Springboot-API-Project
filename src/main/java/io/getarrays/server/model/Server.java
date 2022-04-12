@@ -8,17 +8,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity //create a entity for this class that is going to store id DB
+@Data // reduce boilerplate for getter,setter , TOSTRING, requiredArgsConstructor
+@NoArgsConstructor // generate empty parameter constructor
+@AllArgsConstructor //generate constructor for all the field in the class
 public class Server {
 
-    @Id
+    @Id //primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true) // column details in table
     @NotEmpty(message = "IP Address cannot be empty or null")
     private String ipAddress;
     private String name;
